@@ -1,0 +1,56 @@
+:root{
+  --size:60px;
+  --accent:#22a552;
+  --text:#1f2937;
+  --ring-thickness:2px;
+  --ring-offset:8px;
+}
+
+html,body{height:100%;margin:0}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f5f7f9;
+  font-family:system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
+}
+.arrow{
+  position:absolute;
+  left:500px;   /* tweak to position the start of the arrow */
+  top:300px;    /* tweak to position the start of the arrow */
+  width:220px;
+  height:80px;
+  color:#c0a407; /* applies to stroke and arrowhead (currentColor) */
+  pointer-events:none;
+  overflow:visible;
+  transform: rotate(1000deg); /* adjust rotation if needed */
+}
+.hyper-card{
+  width:var(--size);
+  height:var(--size);
+  border-radius:50%;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  box-shadow:0 6px 14px rgba(16,24,40,0.06);
+  color:var(--text);
+  font-weight:600;
+  user-select:none;
+  bottom: 300px;  
+  right: 360px;          /* di chuyển xuống 20px */
+}
+
+/* outer ring created with a pseudo-element so text stays centered and crisp */
+.hyper-card::before{
+  content:"";
+  position:absolute;
+  left:calc(var(--ring-offset) * -1);
+  top:calc(var(--ring-offset) * -1);
+  right:calc(var(--ring-offset) * -1);
+  bottom:calc(var(--ring-offset) * -1);
+  border-radius:50%;
+  border:var(--ring-thickness) solid var(--accent);
+  pointer-events:none;
+}
